@@ -1,0 +1,37 @@
+{
+  "name": "create-wordpress-theme",
+  "version": "1.0.0",
+  "description": "A simple node package to create WordPress starter theme",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "WordPress Theme",
+    "WordPress Starter Theme"
+  ],
+  "author": "Umesh Ghimire <me.umeshuser@gmail.com>",
+  "engines": {
+    "node": ">4.0"
+  },
+  "homepage": "http://github.com/ughimire/create-wordpress-theme",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/ughimire/create-wordpress-theme/LICENSE"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Umesh Ghimire",
+      "email": "me.umeshuser@gmail.com",
+      "url": "https://github.com/ughimire"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ughimire/create-wordpress-theme.git"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "5.0.5"
+  }
+}
