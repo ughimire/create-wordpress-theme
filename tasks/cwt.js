@@ -21,11 +21,10 @@ const wpThemeHeader = {
     tags:''
 };
 const wpCreateThemeFolder = (theme_dir_name) => {
-    fs.mkdir(path.join(__dirname, theme_dir_name), (err) => {
+    fs.mkdir(path.join(process.cwd(), theme_dir_name), (err) => {
         if (err) {
             return console.error(err);
         }
-        console.log('Directory created successfully!');
     });
 };
 const makeCoreDirectory=(filePath)=>{
@@ -53,9 +52,8 @@ const walk = function (dir) {
             results.push(file);
             var relative_path = path.relative((path.join(__dirname, "tmpl")), file);
             relative_path=relative_path.replace("{{theme_name_prefix}}", wpThemeHeader.text_domain).replace('.tpl','');
-            var theme_file_path = path.join(__dirname, wpThemeHeader.text_domain, relative_path);
+            var theme_file_path = path.join(process.cwd(), wpThemeHeader.text_domain, relative_path);
             
-            console.log(theme_file_path);
             fs.readFile(file, 'utf8', function (err,data) {
                 if (err) {
                   return console.log(err);

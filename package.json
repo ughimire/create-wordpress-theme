@@ -1,9 +1,12 @@
 {
   "name": "create-wordpress-theme",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "A simple node package to create WordPress starter theme",
   "scripts": {
     "create-wordpress-theme": "node tasks/cwt.js"
+  },
+  "bin": {
+    "create-wordpress-theme": "./tasks/cwt.js"
   },
   "license": "MIT",
   "keywords": [
