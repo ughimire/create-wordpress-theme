@@ -5,7 +5,7 @@ A simple node package to create WordPress starter theme
 Install via NPM:
 
 ```bash
-npm install create-wordpress-theme
+npm install -g create-wordpress-theme
 
 ```
 
