@@ -23,7 +23,8 @@ const wpThemeHeader = {
 const wpCreateThemeFolder = (theme_dir_name) => {
     fs.mkdir(path.join(process.cwd(), theme_dir_name), (err) => {
         if (err) {
-            return console.error(err);
+            console.error(err);
+            process.exit(1);
         }
     });
 };

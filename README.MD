@@ -10,28 +10,11 @@ npm install create-wordpress-theme
 ```
 
 ## Usage
-
-#### javascript
-
-```javascript
-
-var myApp = require("create-wordpress-theme");
-
-myApp.printMsg(); // print and return " Hello Umesh! " 
-
-```
-
-#### TypeScript
-
-```typescript
-
-import * as myApp from 'create-wordpress-theme';
-
-myApp.printMsg(); // print and return " Hello Umesh! " 
+```bash
+create-wordpress-theme
 
 
 ```
-
 ## License
 
 This project is licensed under the terms of the
