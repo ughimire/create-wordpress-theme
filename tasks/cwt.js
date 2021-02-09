@@ -8,6 +8,9 @@ const readline = require("readline");
 
 const wpThemeHeader = {
     theme_name: 'undefined',
+    theme_constant:'UNDEFINED',
+    theme_prefix:'undefined',
+    class_name:'Undefined',
     theme_uri:'',
     author:'',
     author_uri:'',
@@ -57,7 +60,7 @@ const walk = function (dir) {
                 if (err) {
                   return console.log(err);
                 }
-                var result = data;// data.replace(/string to be replaced/g, 'replacement');
+                var result = wpThemeFilesReplaceAll(data); data;
 
                 makeCoreDirectory(theme_file_path);
               
@@ -73,6 +76,35 @@ const walk = function (dir) {
     });
 
     return results;
+}
+const wpThemeFilesReplaceAll=(data)=>{
+    data= data.replace(/{{theme_name}}/g, wpThemeHeader.theme_name);
+    
+    data= data.replace(/{{theme_uri}}/g, wpThemeHeader.theme_uri);
+    
+    data= data.replace(/{{author}}/g, wpThemeHeader.author);
+
+    data= data.replace(/{{author_uri}}/g, wpThemeHeader.author_uri);
+
+    data= data.replace(/{{description}}/g, wpThemeHeader.description);
+
+    data= data.replace(/{{text_domain}}/g, wpThemeHeader.text_domain);
+
+    data= data.replace(/{{tested_upto}}/g, wpThemeHeader.tested_upto);
+
+    data= data.replace(/{{requires_php}}/g, wpThemeHeader.requires_php);
+
+    data= data.replace(/{{tags}}/g, wpThemeHeader.tags);
+
+    data = data.replace(/{{theme_constant}}/g, wpThemeHeader.theme_constant);
+
+    data = data.replace(/{{theme_prefix}}/g, wpThemeHeader.theme_prefix);
+
+    data = data.replace(/{{class_name}}/g, wpThemeHeader.class_name);
+
+
+
+    return data;
 }
 
 const wpCreateThemeTemplates = (theme_name, theme_uri, author, author_uri) => {
@@ -141,6 +173,11 @@ rl.question("Theme Name:", function (theme_name) {
                 wpThemeHeader.author=author;
                 wpThemeHeader.author_uri=author_uri;
                 wpThemeHeader.text_domain=theme_valid_name;
+                wpThemeHeader.theme_constant=getThemePrefix(theme_name, true);
+                wpThemeHeader.theme_prefix=getThemePrefix(theme_name, false);
+                wpThemeHeader.class_name=getThemeClassName(theme_name);
+
+
                 wpCreateThemeFolder(theme_valid_name);
                 wpCreateThemeTemplates(theme_name, theme_uri, author, author_uri);
                 rl.close();
